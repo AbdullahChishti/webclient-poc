@@ -1,0 +1,79 @@
+Writing a rough guideline that we would need for the SPA going ahead.
+
+### 1. **Set Up Development Environment**
+
+- **Install Node.js**: React applications are typically built using JavaScript and JSX, which can be managed with Node Package Manager (npm) or Yarn. Start by installing the latest version of Node.js from the official website.
+
+- **Create a New React App**: Use `create-react-app` to bootstrap your new project. It sets up a ready-to-go React environment with a build pipeline and sane defaults.
+
+
+### 2. **Understand Component Structure**
+
+- **Plan Your Components**: Divide your UI into reusable components. Components should be modular and have a clear responsibility. Consider using functional components with hooks for a more modern and concise approach.
+
+### 3. **Manage State** [for advanced stages]
+
+- **useState**: For local state management within a component.
+  
+- **useContext**: For sharing state across multiple components without prop drilling.
+  
+- **Redux or MobX**: If your application has complex state management needs, consider integrating a state management library like Redux or MobX.
+
+### 4. **Routing** [for advanced stages]
+
+- **React Router**: 
+To enable navigation between different views in your SPA without page reloads, use `react-router-dom`. Install it and set up routes for your different pages or "views".
+
+```bash
+npm install react-router-dom
+```
+
+In your `src` directory, create a `Routes.js` (or similar) file to configure routes:
+
+```jsx
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
+
+function Routes() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
+        {/* Add more routes as needed */}
+      </Switch>
+    </Router>
+  );
+}
+
+export default Routes;
+```
+
+Then, include `Routes` in your `App.js`.
+
+### 5. **API Integration** 
+
+- **fetch or axios**: To interact with external APIs, you can use `fetch` (built-in with JavaScript) or a library like `axios`. Set up services or utility functions to handle these requests.
+
+### 6. **Styling**
+
+- **CSS-in-JS**: Libraries like styled-components or emotion allow you to write CSS styles directly within your components.
+  
+- **External CSS**: You can also use traditional CSS files or CSS preprocessors like Sass with appropriate setup.
+
+### 7. **Performance Optimization**
+
+- **Code Splitting**: `create-react-app` comes with code splitting out of the box, but you may need to fine-tune it for larger apps.
+  
+- **Lazy Loading**: Use `React.lazy` and `Suspense` for lazy loading components that are not needed immediately.
+  
+- **Optimize Images and Assets**: Ensure images are appropriately sized and consider using modern formats like WebP.
+
+### 8. **Testing**
+
+- ** Jest and React Testing Library**: Write unit tests for your components to ensure they behave as expected. Jest is a testing framework, and React Testing Library provides utilities to test React components.
+
+### 9. **Deployment** [for advanced stages]
+
+- designing an SPA is an iterative process. Start with a simple structure, and gradually refine and add features based on your application's requirements. Keep user experience at the forefront of your design decisions, and continuously test and optimize for performance.
